@@ -1,0 +1,40 @@
+{
+  "name": "ponomar.webapp",
+  "version": "0.0.1",
+  "devDependencies": {
+    "ava": "^1.4.1",
+    "browser-env": "^3.2.6",
+    "jshint": "^2.10.3",
+    "npm-run-all": "^4.1.5",
+    "ponomar": "file:../ponomar.js",
+    "require-extension-hooks": "^0.3.3",
+    "require-extension-hooks-babel": "^1.0.0-beta.1",
+    "rollup": "^1.10.1",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-terser": "^4.0.4",
+    "sirv-cli": "^0.4.0",
+    "surge": "^0.21.3",
+    "svelte": "^3.0.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "autobuild": "rollup -c -w",
+    "dev": "run-p start:dev autobuild",
+    "start": "sirv public",
+    "start:dev": "sirv public --dev",
+    "lint": "jshint src/*.js",
+    "test": "ava",
+    "publish": "surge public/"
+  },
+  "ava": {
+    "require": [
+      "./.avaconfig.js"
+    ]
+  },
+  "dependencies": {
+    "svelte-calendar": "^1.1.0"
+  }
+}
