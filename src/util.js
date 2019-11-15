@@ -25,8 +25,7 @@ export function dateMMDDYYYY(arg) {
 }
 
 export function parseMMDDYYYY(dateStr) {
-    let [month, day, year] = dateStr.split('/').map(x => +x);
-    month += 1;
+    const [month, day, year] = dateStr.split('/').map(x => +x);
 
     return { year, month, day };
 }
