@@ -1,5 +1,15 @@
-# ava-svelte-example
+# sunrise.kroutikov.net
 
-An example project on how to test Svelte components with ava.
+Source code for the http://sunrise.kroutikov.net site. Testing Sunrise/Sunset JS api from ponomar.js
 
-An explanation of it's setup can be found [here](https://cam.st/2019/05/28/testing-with-svelte-and-ava/).
+## Build
+
+```
+npm i
+make
+```
+
+## Develop
+```
+npm run dev
+```
