@@ -2,7 +2,7 @@
 	import { JDate } from 'ponomar';
 	import cities from './cities.js';
 	import Datepicker from 'svelte-calendar';
-	import { dateMMDDYYYY, parseMMDDYYYY, getTZoffset } from './util.js';
+	import { dateMMDDYYYY, parseMMDDYYYY, getTZoffset, getGeoLocation } from './util.js';
 
 	const API_KEY = 'AIzaSyDrfmgFWRh8FdeKvsXHOtFapspnxlDk0Hc';
 
@@ -38,6 +38,10 @@
 	let promise;
 	$: promise = getTZ({lon, lat, year, month, day, api_key: API_KEY});
 
+	async function myLocation() {
+		[lon, lat, name] = await getGeoLocation();
+	}
+
 </script>
 
 <style>
@@ -70,6 +74,7 @@
 	<p style="color: red">{error.message}</p>
 {/await}
 
+<button on:click={myLocation}>{'My Location'}</button>
 {#each cities as city}
 	<button on:click={e=>({lon,lat,name}=city)}>{city.name}</button>
 {/each}

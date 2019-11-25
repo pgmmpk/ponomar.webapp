@@ -49,3 +49,14 @@ export async function getTZoffset({lon, lat, year, month, day, api_key}) {
     return (object.dstOffset + object.rawOffset) / 60.0 / 60.0;
 }
 
+export async function getGeoLocation() {
+    const url = 'https://ipapi.co/json';
+    const response = await fetch(url);
+    const obj = await response.json();
+    if (!obj.city) {
+        console.error(obj);
+        throw new Error(JSON.stringify(obj));
+    }
+
+    return [obj.longitude, obj.latitude, obj.city];
+}
